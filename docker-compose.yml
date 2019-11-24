@@ -1,0 +1,21 @@
+version: "3"
+services:
+    grafana:
+        image: grafana/grafana:5.1.0
+        container_name: "grafana"
+        environment:
+            GF_SECURITY_ADMIN_PASSWORD: P@ssw0rd
+            TZ: "America/Bahia"
+        ports:
+          - 3000:3000
+        user: "104"
+    postegres:
+        image: postgres:9.6
+        container_name: "postgresSRE"
+        environment:
+          POSTGRES_DB: postgres
+          POSTGRES_USER: sreadmin
+          POSTEGRES_PASSWORD: admin123
+          TZ: "America/Bahia"
+        ports:
+          - 5432:5432
